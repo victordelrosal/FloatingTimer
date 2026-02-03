@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloatingTimer - Always-on-top Timer for macOS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tagline {
+            font-size: 1.4rem;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+        .timer-preview {
+            background: rgba(0, 0, 0, 0.57);
+            border-radius: 16px;
+            padding: 30px 40px;
+            display: inline-block;
+            margin: 30px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        .timer-display {
+            font-size: 4rem;
+            font-weight: bold;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            color: #fff;
+        }
+        .timer-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        .btn-play {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #22c55e;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .btn-reset {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #fff;
+            text-decoration: none;
+            padding: 18px 50px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 30px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.4);
+        }
+        .platform {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 50px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            text-align: left;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .feature h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #22c55e;
+        }
+        .feature p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .github-link {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            display: inline-block;
+        }
+        .github-link:hover {
+            color: #94a3b8;
+        }
+        footer {
+            margin-top: 60px;
+            color: #475569;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FloatingTimer</h1>
+        <p class="tagline">The always-on-top countdown timer for macOS</p>
+
+        <div class="timer-preview">
+            <div class="timer-display">05:00</div>
+            <div class="timer-buttons">
+                <button class="btn-play">&#9658;</button>
+                <button class="btn-reset">&#8635;</button>
+            </div>
+        </div>
+
+        <div>
+            <a href="https://github.com/vdelrosal/FloatingTimer/releases/latest/download/FloatingTimer.zip" class="download-btn">
+                Download for macOS
+            </a>
+            <p class="platform">Requires macOS 13.0 or later</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>Always On Top</h3>
+                <p>Stays visible over ALL apps, including Keynote and PowerPoint presentation mode.</p>
+            </div>
+            <div class="feature">
+                <h3>Drag Anywhere</h3>
+                <p>Position it flush against any corner or anywhere on your screen.</p>
+            </div>
+            <div class="feature">
+                <h3>Click to Edit</h3>
+                <p>Tap minutes or seconds to quickly set any custom time.</p>
+            </div>
+            <div class="feature">
+                <h3>Visual Warnings</h3>
+                <p>Background smoothly transitions to red as time runs low.</p>
+            </div>
+            <div class="feature">
+                <h3>Alarm Sound</h3>
+                <p>Repeating alert when timer ends. Click anywhere to dismiss.</p>
+            </div>
+            <div class="feature">
+                <h3>Minimal & Clean</h3>
+                <p>Semi-transparent design with smooth rounded corners.</p>
+            </div>
+        </div>
+
+        <a href="https://github.com/vdelrosal/FloatingTimer" class="github-link">
+            View on GitHub &rarr;
+        </a>
+
+        <footer>
+            <p>Created by Victor del Rosal</p>
+        </footer>
+    </div>
+</body>
+</html>
