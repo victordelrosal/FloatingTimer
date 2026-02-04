@@ -19,13 +19,9 @@ A sleek, always-on-top countdown timer for macOS. Perfect for presentations, tea
 
 1. Download the latest release from the [Releases page](https://github.com/victordelrosal/FloatingTimer/releases)
 2. Unzip and drag `FloatingTimer.app` to your Applications folder
-3. **Important:** Remove the quarantine flag (required for unsigned apps):
-   ```bash
-   xattr -cr /Applications/FloatingTimer.app
-   ```
-4. Double-click to run
+3. Double-click to run
 
-> **Note:** macOS may show "app is damaged" for unsigned apps downloaded from the internet. The `xattr -cr` command removes the quarantine flag and allows the app to run.
+The app is code-signed and notarized by Apple, so it will open without any warnings.
 
 ## Usage
 
